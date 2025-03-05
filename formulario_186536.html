@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto Centrado</title>
+    <style>
+        body {
+            background-color: #78b9bd;
+        }
+        .derecha{
+            text-align: right;
+        }
+      
+    </style>
+</head>
+<body>
+
+    <!--Titulos-->
+    <h1><center>Volkswagen Potosina</center></h1>
+    <h2><center>Compras online</center></h2>
+
+   <!--Primera parte-->
+    <fieldset>
+        <legend> <h4>Informacion general del cliente</h4> </legend>
+
+        <div><center>
+
+            <label for="nombre" >Nombre:</label>
+            <input name="nombre" type="text" title="Escribe tu nombre" placeholder="Nombre" id="nombre" required>
+            <label for="apellidoP">Apellido paterno:</label>
+            <input name="apellidoP" type="text" title="Escribe tu apellido" placeholder="Apellido Paterno" id="apellidoP">
+            <label for="apellidoM">Apellido Materno:</label>
+            <input name="apellidoM" type="text" title="Escribe tu apellido" placeholder="Apellido Materno" id="apellidoM">
+        
+        </center></div>
+        <br/>
+        <div><center>
+
+            <label for="NomU"> Nombre de usuario </label>
+            <input name="NomU" type="text" title="Usuario" placeholder="Usuario" id="NomU" required>
+            <label for="Contraseña">Password </label>
+            <input name="Contraseña" type="password" title="Password" placeholder="Password" id="Contraseña" required>
+            <label for="fecha"> Fecha de registro </label>
+            <input name="fecha" type="date" title="fecha" id="fecha">
+
+        </center></div>
+    </fieldset>
+
+    <!--Segunda parte-->
+    <fieldset>
+        <legend>Datos para facturar</legend>
+
+                <!--paises-->
+        <div><center>
+            <label for="pais">País</label>
+        <select name="País">
+            <optgroup label="paises">
+                <option selected>México</option>
+                <option>Estados Unidos</option>
+                <option>Canada</option>
+                <option>Reino unido</option>
+                <option>Argentina</option>
+                <option>Chile</option>
+            </optgroup>  
+        </select>
+
+                <!--  ciudad  -->
+        <label for="ciudad">Ciudad</label>
+        <select name="ciudad">
+            <option selected>San Luis Potosi</option>
+            <option> Monterrey </option>
+            <option> Cd. Valles </option>
+            <option> Chihuahua </option>
+            <option> Puebla </option>
+            <option> Ciudad de México </option>
+            <option> Aguascalientes </option>
+        </select>
+
+            <!--  Calle   -->
+            <label form="Calle"> Calle </label>
+            <input name="Calle" type="text" id="Calle" title="Calle" placeholder="Calle">
+        
+        </center></div>
+        <br/>
+        <div><center>
+
+            <label form="NumC"> Número de casa</label>
+            <input name="Numc" type="number" id="NumC" title="Numero exterior" placeholder="Numero exterior">
+            <label form="Colonia"> Colonia</label>
+            <input name="Colonia" type="text" id="Colonia" title="Colonia" placeholder="Colonia">
+            <label form="Email"> E-mail </label>
+            <input name="Email" type="text" id="Email" title="E-mail" placeholder="E-mail" required>
+        
+        </center></div>
+        <br/>
+        <div><center>
+
+            <label form="RFC"> R.F.C. </label>
+            <input name="RFC" type="text" id="RFC" title="R.F.C." placeholder="R.F.C." required>
+            <label form="CP"> C.P. </label>
+            <input name="CP" type="number" id="CP" title="C.P." placeholder="C.P.">
+            <input name="cond" type="checkbox" id="cond">
+            <label form="cond">Acepto terminos y condiciones</label>
+
+
+            <button type="submit">Enviar</button>
+            <button type="reset">Restablecer</button>
+        </center></div>
+    </fieldset>
+    <h2 class="derecha">Febrero 2025, SLP</h2>
+</body>
+</html>
+
+
