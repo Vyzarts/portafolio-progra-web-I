@@ -1,0 +1,25 @@
+ul{
+    list-style-type: none;
+    width: 20%;
+    background-color: rgb(99, 19, 99);
+    padding: 0;
+    margin: 0;
+}
+
+li a{
+    display: block; /* agregar valor de bloque a los hipervinculos*/
+    background-color: rgb(76, 154, 76);
+    padding: 12px;
+    text-decoration: none; /*eliminar subrayado de hipervinculos*/
+    font-family: arial, Verdana, verdana, Tahoma, sans-serif;
+}
+
+li a:hover{
+    background-color: rgb(122, 57, 57);
+    color: white;
+
+}
+li a.activo{
+    background-color: rgb(92, 29, 118);
+    color: white;
+}
