@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Examen práctico Parcial 2</title>
+  <style>
+    .imagenes {
+      margin: 10px;
+    }
+
+    table {
+      border-spacing: 20px;
+    }
+
+    #mostrar {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+  
+    #mostrar.hover-effect {
+      background-color: #FF4136;
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    body {
+      background-image: url('imagenes/onepiecefondo1.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    label {
+        margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+  </style>
+</head>
+<body>
+  <h1><center>Examen práctico Parcial 2</center></h1>
+
+  <h2><center>Nombre del alumno(a):</center></h2>
+
+  <center>
+    <input type="button" id="mostrar" value="Botón mágico">
+  </center>
+
+  <label for="mostrar"><center>LOS CUATRO EMPERADORES </center></label>
+
+  <div id="galeria">
+    <center>
+      <table>
+        <thead>
+          <tr>
+            <th><img class="imagenes" src="imagenes/luffy.jfif" alt="Luffy" width="200"></th>
+            <th><img class="imagenes" src="imagenes/buggy.jfif" alt="Buggy" width="200"></th>
+            <th><img class="imagenes" src="imagenes/shanks.jfif" alt="Shanks" width="200"></th>
+            <th><img class="imagenes" src="imagenes/barba negra.jfif" alt="Barba Negra" width="200"></th>
+          </tr>
+        </thead>
+      </table>
+    </center>
+  </div>
+
+  <script>
+    const boton = document.getElementById("mostrar");
+    const galeria = document.getElementById("galeria");
+
+    boton.addEventListener("mouseover", function() {
+      galeria.style.display = "none";
+      boton.classList.add("hover-effect");
+    });
+
+    boton.addEventListener("mouseout", function() {
+      galeria.style.display = "block";
+      boton.classList.remove("hover-effect");
+    });
+  </script>
+</body>
+</html>
