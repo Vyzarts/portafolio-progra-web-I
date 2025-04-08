@@ -1,0 +1,32 @@
+table{
+    width: 100%;
+    border: 5px solid lightgray;
+    border-collapse: collapse;
+    font-family: arial, verdana;
+    caption-side: tpo;
+
+}
+th,td{
+    border: 5px solid lightgray;
+}
+td{
+    padding: 5px;
+    text-align: justify;
+}
+table tr:nth-child(odd){
+    background-color: lightgray;
+}
+table tr:nth-child(even){
+    background-color: lightgreen;
+}
+
+tr th{
+    background-color: black;
+    color: white;
+
+}
+
+table tr:hover{
+    background-color: rgb(126, 9, 134);
+    color: white;
+}
