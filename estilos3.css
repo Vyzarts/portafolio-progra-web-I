@@ -1,0 +1,60 @@
+ul{
+    list-style-type: none;
+    width: 20%;
+    background-color: rgb(99, 19, 99);
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: rgb(76, 154, 76);
+    position: fixed;
+    overflow: auto;
+}
+
+li a{
+    display: block; /* agregar valor de bloque a los hipervinculos*/
+    background-color: rgb(76, 154, 76);
+    padding: 12px;
+    text-decoration: none; /*eliminar subrayado de hipervinculos*/
+    font-family: arial, Verdana, verdana, Tahoma, sans-serif;
+}
+
+li a:hover{
+    background-color: rgb(122, 57, 57);
+    color: white;
+
+}
+li a.activo{
+    background-color: rgb(92, 29, 118);
+    color: white;
+}
+.capa1{
+    margin-left: 20%;
+    padding: 12px;
+}
+
+@font-face {
+    font-family: "fuente1";
+    src: url("Doto/Doto-VariableFont_ROND,wght") format("truetype");
+}
+p{
+    text-align: justify;
+    font-family: 'fuente1';
+}
+h1 {
+    font-family: "Doto", sans-serif;
+    font-size: 24px;
+  }
+  h2{
+    font-family: "EB Garamond", serif;
+  }
+
+  .texto1{
+    visibility: visible;
+  }
+  .texto2{
+    visibility: hidden;
+  }
+  .imagen1{
+    width: 20vh;
+    height: 20vh;
+  }
