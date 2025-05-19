@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Estacionamiento</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <center><h1>Pago de Estacionamiento</h1>
+        <form id="formulario">
+            <label for="horas">Horas de uso:</label></br>
+            <input type="number" id="horas" min="1" required><br>
+
+            <label for="tipo">Tipo de automóvil:</label></form><br>
+            <select id="tipo" required>
+                <option value="">Seleccione</option>
+                <option value="chico">Auto chico</option>
+                <option value="camioneta">Camioneta</option>
+                <option value="camion">Camión</option>
+            </select>
+
+            <input type="button" value="Calcular total" onclick="calcularPago()"></center><br>
+        </center>
+        </form>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
