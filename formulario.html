@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuestionario One Piece</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <h1>Cuestionario One Piece</h1>
+
+  <form id="cuestionario">
+    <p>1. ¿Quién es el capitán de los sombrero de paja?</p>
+    <label><input type="radio" name="q1" value="God D. Usopp"> God D. Usopp</label><br>
+    <label><input type="radio" name="q1" value="Luffy"> Luffy</label><br>
+    <label><input type="radio" name="q1" value="Zoro"> Zoro</label><br>
+
+    <p>2. ¿Cuál es la fruta del diablo de Luffy?</p>
+    <label><input type="radio" name="q2" value="Gomu Gomu"> Gomu Gomu</label><br>
+    <label><input type="radio" name="q2" value="Mera Mera"> Mera Mera</label><br>
+    <label><input type="radio" name="q2" value="Hie Hie"> Hie Hie</label><br><br>
+
+    <p>3. ¿Qué tipo de fruta es la fruta de Chopper?</p>
+    <label><input type="radio" name="q3" value="Paramecia"> Paramecia</label><br>
+    <label><input type="radio" name="q3" value="Logia"> Logia</label><br>
+    <label><input type="radio" name="q3" value="Zoan"> Zoan</label><br>
+
+    <p>4. ¿Cuál es el arma ancestral de la isla Gyojin?</p>
+    <label><input type="radio" name="q4" value="Pluton"> Pluton</label><br>
+    <label><input type="radio" name="q4" value="Urano"> Urano</label><br>
+    <label><input type="radio" name="q4" value="Poseidon"> Poseidon</label><br>
+
+    <p>5. ¿En qué isla nació Gol D. Roger?</p>
+    <label><input type="radio" name="q5" value="Isla Ruluka"> Isla Ruluka</label><br>
+    <label><input type="radio" name="q5" value="Loguetown"> Loguetown</label><br>
+    <label><input type="radio" name="q5" value="Laugh Tale"> Laugh Tale</label><br>
+
+    <p>6. ¿Cuál es la isla natal de Nico Robin?</p>
+    <label><input type="radio" name="q6" value="Ohara"> Ohara</label><br>
+    <label><input type="radio" name="q6" value="Amazon Lily"> Amazon Lily</label><br>
+    <label><input type="radio" name="q6" value="Alabasta"> Alabasta</label><br><br>
+
+    <p>7. ¿Cómo se llama la organización secreta a la que pertenecía Nico Robin?</p>
+    <label><input type="radio" name="q7" value="Baroque Works"> Baroque Works</label><br>
+    <label><input type="radio" name="q7" value="CP9"> CP9</label><br>
+    <label><input type="radio" name="q7" value="Ejército Revolucionario"> Ejército Revolucionario</label><br><br>
+  </form>
+
+  <div id="resultado" style="font-weight: bold; margin: 20px 0;"></div>
+  <canvas id="grafico" width="600" height="300"></canvas>
+
+  <button onclick="evaluar()">Evaluar y generar PDF</button>
+
+  <script>
+    const respuestasCorrectas = {
+      q1: "Luffy",
+      q2: "Gomu Gomu",
+      q3: "Zoan",
+      q4: "Poseidon",
+      q5: "Loguetown",
+      q6: "Ohara",
+      q7: "Baroque Works"
+    };
+
+    async function evaluar() {
+      const form = document.getElementById("cuestionario");
+      const total = Object.keys(respuestasCorrectas).length;
+      const respuestasUsuario = [];
+      const puntosPorPregunta = [];
+      let score = 0;
+
+      for (let i = 1; i <= total; i++) {
+        const name = "q" + i;
+        const seleccion = form.querySelector(`input[name="${name}"]:checked`);
+        const respuesta = seleccion ? seleccion.value : "Sin responder";
+        respuestasUsuario.push({ pregunta: i, respuesta });
+        if (respuesta === respuestasCorrectas[name]) {
+          puntosPorPregunta.push(1);
+          score++;
+        } else {
+          puntosPorPregunta.push(0);
+        }
+      }
+
+      document.getElementById("resultado").textContent = `Obtuviste ${score} de ${total} puntos.`;
+
+      // Gráfico
+      const ctx = document.getElementById("grafico").getContext("2d");
+      if (window.miGrafico) window.miGrafico.destroy();
+      window.miGrafico = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: respuestasUsuario.map(r => `P${r.pregunta}`),
+          datasets: [{
+            label: 'Puntos por pregunta',
+            data: puntosPorPregunta,
+            backgroundColor: puntosPorPregunta.map(p => p ? 'green' : 'red')
+          }]
+        },
+        options: {
+          scales: {
+            y: { beginAtZero: true, max: 1 }
+          }
+        }
+      });
+
+      // PDF
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.text("Resultado del Cuestionario One Piece", 10, 10);
+      doc.text(`Puntuación: ${score}/${total}`, 10, 20);
+      respuestasUsuario.forEach((r, i) => {
+        const correcta = respuestasCorrectas["q" + r.pregunta];
+        doc.text(`${r.pregunta}. Tu respuesta: ${r.respuesta} | Correcta: ${correcta}`, 10, 30 + i * 10);
+      });
+      doc.save("resultado.pdf");
+    }
+  </script>
+</body>
+</htm
